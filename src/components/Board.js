@@ -1,9 +1,19 @@
 import Square from "./Square";
+import { useState } from "react";
 
 const Board = () => {
+  const [state, setState] = useState(Array(9).fill(null));
+
   const renderSquare = (i) => {
-    return <Square value={i} />;
-  }
+    return <Square value={state[i]} onClick={() => handleClick(i)} />;
+  };
+
+  const handleClick = (i) => {
+    const squares = [...state];
+    squares[i] = "X";
+    console.log(state)
+    setState({ squares: squares });
+  };
 
   const status = "Next player: X";
 
@@ -27,6 +37,6 @@ const Board = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Board;

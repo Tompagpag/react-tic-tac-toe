@@ -10,8 +10,9 @@ const Board = () => {
 
   const handleClick = (i) => {
     const squares = [...state];
+    console.log(squares)
     squares[i] = "X";
-    console.log(state)
+    console.log(squares)
     setState({ squares: squares });
   };
 
